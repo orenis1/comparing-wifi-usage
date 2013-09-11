@@ -34,8 +34,9 @@ paris.raw$month <- factor(paris.raw$mois, levels = c(
 levels(paris.raw$month) <- 1:12
 paris <- data.frame (
   city = 'Paris',
-# month = strptime(paste0(paris.raw$annee, paris.raw$month, '01', sep = '-'), format = '%Y %m %d'),
+  month = strptime(paste(paris.raw$annee, paris.raw$month, '01', sep = '-'), format = '%Y-%m-%d'),
   sessions = paris.raw$nombre_session_total
 )
 
 
+wifi <- rbind(paris, newyork, chicago)
