@@ -42,3 +42,7 @@ wifi <- rbind(paris, newyork, chicago)
 p <- ggplot(wifi) + aes(x = month, y = sessions, group = city, color = city) +
   geom_line() + scale_y_continuous('Number of sessions on public wifi') +
   ggtitle('Public wifi usage in three cities')
+
+png('data/wifi.png')
+print(p)
+dev.off()
