@@ -1,5 +1,5 @@
 library(plyr)
-
+library(ggplot2)
 
 chicago.raw <- read.csv('data/chicago.csv')
 chicago <- data.frame (
@@ -38,5 +38,7 @@ paris <- data.frame (
   sessions = paris.raw$nombre_session_total
 )
 
-
 wifi <- rbind(paris, newyork, chicago)
+p <- ggplot(wifi) + aes(x = month, y = sessions, group = city, color = city) +
+  geom_line() + scale_y_continuous('Number of sessions on public wifi') +
+  ggtitle('Public wifi usage in three cities')
