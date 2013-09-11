@@ -16,7 +16,20 @@ newyork <- data.frame (
   sessions = newyork.aggregated$sessions
 )
 
-DICTIONNAIRE <- c('Janvier' = 1)
+DICTIONNAIRE <- c(
+  'Janvier' = 1,
+  'Février' = 2,
+  'Mars' = 3,
+  'Avril' = 4,
+  'Mai' = 5,
+  'Juin' = 6,
+  'Juillet' = 7,
+  'Août' = 8,
+  'Septembre' = 9,
+  'Octobre' = 10,
+  'Novembre' = 11,
+  'Décembre' = 12
+)
 paris.raw <- read.csv('data/paris.csv', sep = ';')
 paris <- data.frame (
   city = 'Paris',
