@@ -46,17 +46,6 @@ wifi access points without usage.
 I eventually added "hotspot" to my search and found
 [Bronx Wi Fi Hotspot Locations](https://bronx.lehman.cuny.edu/d/m2pz-m9hq).
 
-
-<!--
-* http://datahub.io/dataset/pubwifigr
-* http://datahub.io/dataset/public-places-with-free-wifi
-* http://datahub.io/dataset/wifi-hotspots-nyc
-* http://publicdata.eu/dataset/pubwifi
-* http://publicdata.eu/dataset/pubwifigr
-* http://publicdata.eu/dataset/liste-des-400-hotspots-wifi-de-la-ville-de-paris
-* http://publicdata.eu/dataset/liste-des-hotspots-orange-wifi-access
--->
-
 I figured that they would contain some of the same information.
 I looked through all of them and determined that they contained
 monthly data on the number of internet sessions.
