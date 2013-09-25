@@ -54,6 +54,7 @@ Some interesting parts of that process were:
 
 * check the titles to determine that they concerned wifi
 * follow links to the real dataset, and sometimes give up because the link was bad
+* decide to add "hotspot" to my search
 * translate to english from other languages
 * look for the word "session" in the column names
 * aggregate the new york dataset by month (it started as hotspot rows)
