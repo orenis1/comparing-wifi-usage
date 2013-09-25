@@ -13,18 +13,31 @@ datasets of public wifi usage.
 * http://parisdata.opendatasoft.com/explore/dataset/utilisations_mensuelles_des_hotspots_paris_wi-fi/
 * https://www.metrochicagodata.org/Education/Libraries-WiFi-Usage/vbts-zqt4?
 
-A bit of searching through files I'd
+A bit of searching[^search1] through files I'd
 [downloaded from Socrata]()
-got me to datasets of library internet usage.[^search1]
+got me to datasets of library internet usage.
 
 * https://data.hawaii.gov/d/e85y-zk7s 
 * https://data.austintexas.gov/d/xcd2-xf2f
 
-And searching through files I'd
+And searching[^search2] through files I'd
 [downloaded from CKAN]()
-got me to   .[^search2]
+got me to mostly broken links but also to some lists of
+wifi access points without usage.
 
-* http://www.opendata.provincia.roma.it/dataset/provinciawifi
+* Rome [ProvinciaWIFI](http://www.opendata.provincia.roma.it/dataset/provinciawifi)
+* New York City [Wifi Hotspot Locations](https://data.cityofnewyork.us/Recreation/Wifi-Hotspot-Locations/ehc4-fktp?)
+* Greek public wifi ([Δημόσια Σημεία Πρόσβασης WiFi](http://geodata.gov.gr/geodata/index.php?option=com_sobi2&sobi2Task=sobi2Details&catid=17&sobi2Id=98&Itemid=10))
+
+<!--
+* http://datahub.io/dataset/pubwifigr
+* http://datahub.io/dataset/public-places-with-free-wifi
+* http://datahub.io/dataset/wifi-hotspots-nyc
+* http://publicdata.eu/dataset/pubwifi
+* http://publicdata.eu/dataset/pubwifigr
+* http://publicdata.eu/dataset/liste-des-400-hotspots-wifi-de-la-ville-de-paris
+* http://publicdata.eu/dataset/liste-des-hotspots-orange-wifi-access
+-->
 
 I figured that they would contain some of the same information.
 I looked through all of them and determined that they contained
@@ -33,7 +46,8 @@ monthly data on the number of internet sessions.
 Some interesting parts of that process were:
 
 * check the titles to determine that they concerned wifi
-* translate french to english
+* follow links to the real dataset, and sometimes give up because the link was bad
+* translate to english from other languages
 * look for the word "session" in the column names
 * aggregate the new york dataset by month (it started as hotspot rows)
 * determine whether the dataset is about "wifi" or "internet"
@@ -43,4 +57,4 @@ Some interesting parts of that process were:
     `datasets[grepl('(internet|wifi)', datasets$name, ignore.case = T),c('portal', 'id', 'name')]`
 [^search2]: In case you're curious, I did things like
     `grep -lir '\(wifi\|internet\)' portals/ckan` and
-    `find portals/ckan -name *wifi*`.
+    `find . -name *wifi*|sed -e 's+^..++' | sed -e 's+/+/dataset/+' -e 's+^+http://+'`
