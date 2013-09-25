@@ -1,11 +1,14 @@
-## Detecting related datasets
+[One day](https://twitter.com/thomaslevine/status/377805863131426816),
+I discovered datasets about
+[wifi](http://parisdata.opendatasoft.com/explore/dataset/utilisations_mensuelles_des_hotspots_paris_wi-fi/)
+and [cheap coffee](http://parisdata.opendatasoft.com/explore/dataset/liste-des-cafes-a-un-euro/)
+on [Paris's open data portal](http://parisdata.opendatasoft.com/).
+I guess they like their cafes.
 
+Or do they? Maybe everyone has datasets about wifi and coffee.
+Let's find out. And to keep things simple, let's just start with wifi.
 
-
-
-Paris open data: wifi and coffee.
-
-
+## Finding related datasets
 I flipped through a few pages of OpenPrism and came up with these
 datasets of public wifi usage.
 
