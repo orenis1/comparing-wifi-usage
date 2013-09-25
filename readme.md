@@ -24,15 +24,15 @@ I flipped through a few pages of [OpenPrism]()
 and came up with these datasets of public wifi usage.
 
 * https://data.ny.gov/Social-Services/Public-Pay-Telephone-Wifi-Metrics/2zez-gixy?
-* http://parisdata.opendatasoft.com/explore/dataset/utilisations_mensuelles_des_hotspots_paris_wi-fi/
+* [Utilisations mensuelles des hotspots Paris Wi-Fi](http://parisdata.opendatasoft.com/explore/dataset/utilisations_mensuelles_des_hotspots_paris_wi-fi/)
 * https://www.metrochicagodata.org/Education/Libraries-WiFi-Usage/vbts-zqt4?
 
 A bit of searching[^search1] through files I'd
 [downloaded from Socrata]()
 got me to datasets of library internet usage.
 
-* https://data.hawaii.gov/d/e85y-zk7s 
-* https://data.austintexas.gov/d/xcd2-xf2f
+* Hawaii [Libraries Internet Sessions By Year FY06 - FY11](https://data.hawaii.gov/Social-Services/Libraries-Internet-Sessions-By-Year-FY06-FY11/e85y-zk7s?)
+* [Austin Public Library Statistics 2011-10](https://data.austintexas.gov/dataset/Austin-Public-Library-Materials-Customers-Internet/xcd2-xf2f?)
 
 And searching[^search2] through files I'd
 [downloaded from CKAN]()
