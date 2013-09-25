@@ -23,9 +23,9 @@ I just did some simple text searches.
 I flipped through a few pages of [OpenPrism]()
 and came up with these datasets of public wifi usage.
 
-* https://data.ny.gov/Social-Services/Public-Pay-Telephone-Wifi-Metrics/2zez-gixy?
+* New York State [Public Pay Telephone Wifi Metrics](https://data.ny.gov/Social-Services/Public-Pay-Telephone-Wifi-Metrics/2zez-gixy?)
 * [Utilisations mensuelles des hotspots Paris Wi-Fi](http://parisdata.opendatasoft.com/explore/dataset/utilisations_mensuelles_des_hotspots_paris_wi-fi/)
-* https://www.metrochicagodata.org/Education/Libraries-WiFi-Usage/vbts-zqt4?
+* Chicago [Libraries - WiFi Usage](https://www.metrochicagodata.org/Education/Libraries-WiFi-Usage/vbts-zqt4?)
 
 A bit of searching[^search1] through files I'd
 [downloaded from Socrata]()
