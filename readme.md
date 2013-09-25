@@ -7,10 +7,21 @@ I guess they like their cafes.
 
 Or do they? Maybe everyone has datasets about wifi and coffee.
 Let's find out. And to keep things simple, let's just start with wifi.
+I want to find out **which portals have data about wifi locations and usage**
+and then to **connect these datasets to each other** in a meaningful way.
+
+This article explains how I went about that. I see this endeavour as
+a prototype of some [grand plans]()
+to automate the discovery and linking of related datasets, but you can
+also see this as a tutorial on connecting open data from different portals
+in R.
 
 ## Finding related datasets
-I flipped through a few pages of OpenPrism and came up with these
-datasets of public wifi usage.
+I tried to find all the datasets about wifi locations and usage.
+I just did some simple text searches.
+
+I flipped through a few pages of [OpenPrism]()
+and came up with these datasets of public wifi usage.
 
 * https://data.ny.gov/Social-Services/Public-Pay-Telephone-Wifi-Metrics/2zez-gixy?
 * http://parisdata.opendatasoft.com/explore/dataset/utilisations_mensuelles_des_hotspots_paris_wi-fi/
@@ -31,6 +42,10 @@ wifi access points without usage.
 * Rome [ProvinciaWIFI](http://www.opendata.provincia.roma.it/dataset/provinciawifi)
 * New York City [Wifi Hotspot Locations](https://data.cityofnewyork.us/Recreation/Wifi-Hotspot-Locations/ehc4-fktp?)
 * Greek public wifi ([Δημόσια Σημεία Πρόσβασης WiFi](http://geodata.gov.gr/geodata/index.php?option=com_sobi2&sobi2Task=sobi2Details&catid=17&sobi2Id=98&Itemid=10))
+
+I eventually added "hotspot" to my search and found
+[Bronx Wi Fi Hotspot Locations](https://bronx.lehman.cuny.edu/d/m2pz-m9hq).
+
 
 <!--
 * http://datahub.io/dataset/pubwifigr
@@ -56,8 +71,24 @@ Some interesting parts of that process were:
 * determine whether the dataset is about "wifi" or "internet"
 * determine whether the dataset concerns more than libraries
 
+## Conclusions
+
+### 1. OpenPrism is pretty good.
+Even though OpenPrism is a pretty stupid text search, it got me to the best of the
+datasets. If you're looking for open data of a particular kind and don't want to
+download all of the Socrata and CKAN data,[^download] just search OpenPrism;
+it seems to do pretty well.
+
+To be fair, I was still doing a rather simple text search on my downloads of data
+portal data, and [I know better](http://thomaslevine.com/!/openprism/#naive-search-method)
+than that, but I was still using more power in my searching than is available in
+OpenPrism.
+
+## Footnotes
+
 [^search1]: In case you're curious, the search command looked like this.
     `datasets[grepl('(internet|wifi)', datasets$name, ignore.case = T),c('portal', 'id', 'name')]`
 [^search2]: In case you're curious, I did things like
     `grep -lir '\(wifi\|internet\)' portals/ckan` and
     `find . -name *wifi*|sed -e 's+^..++' | sed -e 's+/+/dataset/+' -e 's+^+http://+'`
+[^download]: I can send them to you, but that still takes a while.
