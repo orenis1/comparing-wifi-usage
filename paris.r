@@ -106,9 +106,9 @@ p2 <- ggplot(paris) + aes(x = sessions, y = trafic, label = annee) +
 
 m2 <- lm(log(trafic) ~  endroit + log(sessions), data = paris)
 
-p3 <- ggplot(subset(paris, annee != 2013)) + aes(x = sessions, y = trafic, label = annee) +
-  geom_point() + facet_wrap(~endroit) + scale_y_log10('Trafic (en minutes)', labels = comma) +
-  scale_x_log10('Nombre de sessions', labels = comma) + geom_text()
+p3 <- ggplot(subset(paris, annee != 2013)) + aes(x = sessions, y = trafic, label = annee, color = endroit) +
+  geom_point() + scale_y_log10('Trafic (en minutes)', labels = comma) +
+  scale_x_log10('Nombre de sessions', labels = comma)
 
 m3 <- lm(log(trafic) ~  endroit + log(sessions), data = subset(paris, annee != 2013))
 
