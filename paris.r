@@ -97,8 +97,11 @@ paris.molten$date <- strptime(paste(paris.molten$annee, paris.molten$mois, '1'),
 paris.molten$annee <- NULL
 paris.molten$mois <- NULL
 
-p <- ggplot(paris.molten) + aes(x = date, y = value, group = variable, color = variable) +
+p1 <- ggplot(paris.molten) + aes(x = date, y = value, group = variable, color = variable) +
   geom_line() + facet_wrap(~endroit) + scale_y_log10('', labels = comma)
 
-m1 <- lm(log(trafic) ~ log(sessions) + endroit, data = paris)
-m2 <- rlm(log(trafic) ~ log(sessions) + endroit, data = paris)
+p2 <- ggplot(paris) + aes(x = sessions, y = trafic, label = annee) +
+  geom_point() + facet_wrap(~endroit) + scale_y_log10('Trafic (en minutes)', labels = comma) +
+  scale_x_log10('Nombre de sessions', labels = comma) + geom_text()
+
+m2 <- lm(log(trafic) ~  endroit + log(sessions), data = paris)
