@@ -104,19 +104,19 @@ p2 <- ggplot(paris) + aes(x = sessions, y = trafic, label = annee) +
   geom_point() + facet_wrap(~endroit) + scale_y_log10('Trafic (en minutes)', labels = comma) +
   scale_x_log10('Nombre de sessions', labels = comma) + geom_text()
 
-m2 <- lm(log(trafic) ~  endroit + log(sessions), data = paris)
+m2 <- lm(log10(trafic) ~  endroit + log10(sessions), data = paris)
 
 p3 <- ggplot(subset(paris, annee != 2013)) + aes(x = sessions, y = trafic, label = annee, color = endroit) +
   geom_point() + scale_y_log10('Trafic (en minutes)', labels = comma) +
   scale_x_log10('Nombre de sessions', labels = comma)
 
-m3 <- lm(log(trafic) ~  endroit + log(sessions), data = subset(paris, annee != 2013))
+m3 <- lm(log10(trafic) ~  endroit + log10(sessions), data = subset(paris, annee != 2013))
 
 p4 <- ggplot(subset(paris.molten, date < as.POSIXct('2013-01-01'))) +
   aes(x = date, y = value, group = variable, color = variable) +
   geom_line() + facet_wrap(~endroit) + scale_y_log10('', labels = comma)
 
-m5 <- lm(log(trafic) ~ log(sessions), data = subset(paris, annee != 2013 & endroit == 'bibliotheques'))
+m5 <- lm(log10(trafic) ~ log10(sessions), data = subset(paris, annee != 2013 & endroit == 'bibliotheques'))
 p5 <- ggplot(subset(paris, annee != 2013 & endroit == 'bibliotheques')) +
   aes(x = sessions, y = trafic, label = annee) +
   geom_point() + scale_y_log10('Trafic (en minutes)', labels = comma) +
@@ -132,6 +132,6 @@ p5.base <- function() {
   .x <- c(1e3, 3e3, 1e4, 3e4)
   .y <- c(1e5, 3e5, 1e6)
   axis(1, at = log10(.x), labels = .x)
-  axis(2, at = log10(.y), labels = c('100.000', '500.000', '1 million'))
+  axis(2, at = log10(.y), labels = c('100000', '500000', '1 million'))
   abline(m5, lty = 2)
 }
