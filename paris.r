@@ -1,6 +1,7 @@
 library(reshape2)
 library(plyr)
 library(ggplot2)
+library(scales)
 
 paris.raw <- read.csv('data/paris.csv', sep = ';')
 paris.raw$mois <- factor(paris.raw$mois, levels = c(
@@ -97,4 +98,7 @@ paris.molten$annee <- NULL
 paris.molten$mois <- NULL
 
 p <- ggplot(paris.molten) + aes(x = date, y = value, group = variable, color = variable) +
-  geom_line() + facet_wrap(~endroit)
+  geom_line() + facet_wrap(~endroit) + scale_y_log10('', labels = comma)
+
+m1 <- lm(log(trafic) ~ log(sessions) + endroit, data = paris)
+m2 <- rlm(log(trafic) ~ log(sessions) + endroit, data = paris)
