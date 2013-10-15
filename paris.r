@@ -1,6 +1,6 @@
 library(reshape2)
 library(plyr)
-library(MASS)
+library(ggplot2)
 
 paris.raw <- read.csv('data/paris.csv', sep = ';')
 paris.raw$mois <- factor(paris.raw$mois, levels = c(
@@ -88,3 +88,13 @@ eda <- function() {
   plot(sessions ~ trafic, data = paris)
   plot(sessions ~ trafic + endroit, data = paris)
 }
+
+paris.molten <- melt(paris, c('annee', 'mois','endroit'),c('trafic','sites.ouverts','sessions'))
+
+Sys.setlocale('LC_TIME', 'fr_FR.UTF-8')
+paris.molten$date <- strptime(paste('2013', paris$mois, '1'), '%Y %B %d')
+paris.molten$annee <- NULL
+paris.molten$mois <- NULL
+
+p <- ggplot(paris.molten) + aes(x = date, y = value, group = variable, color = variable) +
+  geom_line() + facet_wrap(~endroit)
