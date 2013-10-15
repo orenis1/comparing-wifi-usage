@@ -89,10 +89,10 @@ eda <- function() {
   plot(sessions ~ trafic + endroit, data = paris)
 }
 
-paris.molten <- melt(paris, c('annee', 'mois','endroit'),c('trafic','sites.ouverts','sessions'))
+paris.molten <- melt(na.omit(paris), c('annee', 'mois','endroit'),c('trafic','sites.ouverts','sessions'))
 
 Sys.setlocale('LC_TIME', 'fr_FR.UTF-8')
-paris.molten$date <- strptime(paste('2013', paris$mois, '1'), '%Y %B %d')
+paris.molten$date <- strptime(paste(paris.molten$annee, paris.molten$mois, '1'), '%Y %B %d')
 paris.molten$annee <- NULL
 paris.molten$mois <- NULL
 
