@@ -116,3 +116,22 @@ p4 <- ggplot(subset(paris.molten, date < as.POSIXct('2013-01-01'))) +
   aes(x = date, y = value, group = variable, color = variable) +
   geom_line() + facet_wrap(~endroit) + scale_y_log10('', labels = comma)
 
+m5 <- lm(log(trafic) ~ log(sessions), data = subset(paris, annee != 2013 & endroit == 'bibliotheques'))
+p5 <- ggplot(subset(paris, annee != 2013 & endroit == 'bibliotheques')) +
+  aes(x = sessions, y = trafic, label = annee) +
+  geom_point() + scale_y_log10('Trafic (en minutes)', labels = comma) +
+  scale_x_log10('Nombre de sessions', labels = comma)
+
+p5.base <- function() {
+  plot(log10(trafic) ~ log10(sessions), data = subset(paris, annee != 2013 & endroit == 'bibliotheques'),
+    main = 'Utilisation du wifi publique de Paris',
+    xlab = 'Nombre de sessions',
+    ylab = 'Trafic (en minutes)',
+    axes = FALSE
+  )
+  .x <- c(1e3, 3e3, 1e4, 3e4)
+  .y <- c(1e5, 3e5, 1e6)
+  axis(1, at = log10(.x), labels = .x)
+  axis(2, at = log10(.y), labels = c('100.000', '500.000', '1 million'))
+  abline(m5, lty = 2)
+}
